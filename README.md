@@ -46,22 +46,3 @@ Entities/   ฉากย่อยที่ถูก instance ซ้ำ
 Resources/  ZoneProfile 5 โซน · Environment · TileSet
 Tools/      สคริปต์เจนอาร์ตและเจนเลเวล (ดูด้านล่าง)
 ```
-
-## เจนอัตลาสและหอคอยใหม่
-
-รันจากรากโปรเจกต์ ต้องมีอาร์ตดิบอยู่ที่ `../` ตามที่ระบุใน `Tools/build_tower_atlas.gd`
-
-```bash
-godot --headless --path . --script res://Tools/build_tower_atlas.gd    # ประกอบอัตลาส 5 โซน
-godot --headless --path . --script res://Tools/gen_tower_tileset.gd    # สร้าง TileSet 5 source
-godot --headless --path . --script res://Tools/gen_tower_level.gd      # เจนหอคอย 43 ชั้น
-```
-
-ตัวเจนหอคอยคำนวณระยะกระโดดจากค่าฟิสิกส์จริงใน `Scripts/Wick.gd`
-ทุกก้าวบนเส้นทางหลักจึงกระโดดถึงได้แน่นอน ตั้งซีดด้วย `LUMEN_SEED=12345`
-
-## สิ่งที่ต้องเปลี่ยนถ้าจะเอาไปใช้ที่อื่น
-
-- `Fonts/thai_ui.ttf` ตอนนี้เป็น Leelawadee UI ของ Microsoft ที่ก๊อปมาจากเครื่อง
-  **แจกจ่ายไม่ได้** เปลี่ยนเป็น Noto Sans Thai (OFL) ก่อน — ดู `Fonts/README_FONT.md`
-- เสียง SFX ในโฟลเดอร์ `Audio/` ไม่ใช่ของโปรเจกต์นี้
