@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Tower/CrumblePlatform.gd" id="1_s"]
+[ext_resource type="Texture2D" path="res://Resources/ember_light.tres" id="2_lt"]
+
+[sub_resource type="RectangleShape2D" id="RS_trig"]
+size = Vector2(60, 12)
+
+[node name="CrumblePlatform" type="Node2D"]
+script = ExtResource("1_s")
+
+[node name="Trigger" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(0, -7)
+shape = SubResource("RS_trig")
+
+[node name="Light" type="PointLight2D" parent="."]
+position = Vector2(0, -30)
+color = Color(0.66, 0.8, 0.98, 1)
+energy = 0.85
+blend_mode = 1
+texture = ExtResource("2_lt")
+texture_scale = 0.85
+texture_filter = 1
+range_z_min = 0
+range_z_max = 8

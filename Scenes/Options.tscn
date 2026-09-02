@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://Scripts/Options.gd" id="1_opt"]
+[ext_resource type="FontFile" path="res://Fonts/thai_ui.ttf" id="2_font"]
+[ext_resource type="FontFile" path="res://Fonts/thai_ui_bold.ttf" id="3_fontb"]
+[ext_resource type="Texture2D" path="res://Sprites/Logos/lumen_bg.png" id="4_bg"]
+
+[sub_resource type="LabelSettings" id="LS_row"]
+font = ExtResource("2_font")
+font_size = 11
+font_color = Color(1, 1, 1, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.85)
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_opt")
+
+[node name="Bg" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.031, 0.024, 0.063, 1)
+
+[node name="BgArt" type="TextureRect" parent="."]
+modulate = Color(0.42, 0.36, 0.6, 0.55)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Scrim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.031, 0.024, 0.063, 0.72)
+
+[node name="Header" type="Label" parent="."]
+offset_left = 74.0
+offset_top = 26.0
+offset_right = 406.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("3_fontb")
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.94, 0.82, 0.45, 1)
+text = "OPTIONS"
+
+[node name="Rule" type="ColorRect" parent="."]
+offset_left = 74.0
+offset_top = 52.0
+offset_right = 406.0
+offset_bottom = 53.0
+color = Color(0.55, 0.45, 0.75, 0.6)
+
+[node name="Proto" type="Label" parent="."]
+visible = false
+label_settings = SubResource("LS_row")
+
+[node name="Rows" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Hint" type="Label" parent="."]
+offset_left = 74.0
+offset_top = 296.0
+offset_right = 410.0
+offset_bottom = 336.0
+autowrap_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 9
+theme_override_colors/font_color = Color(0.72, 0.68, 0.85, 1)
+
+[node name="Sfx" type="AudioStreamPlayer" parent="."]

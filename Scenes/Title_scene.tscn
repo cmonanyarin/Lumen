@@ -1,0 +1,189 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Sprites/Logos/title_logo.png" type="Texture2D" id=1]
+[ext_resource path="res://Audio/music/menu_intro.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Fonts/ttf_alkhemikal.ttf" type="FontFile" id=3]
+[ext_resource path="res://Scripts/Title_scene.gd" type="Script" id=4]
+[ext_resource path="res://Audio/music/title_hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sprites/Logos/lumen_bg.png" type="Texture2D" id=6]
+[ext_resource path="res://Scripts/DriftingBackground.gd" type="Script" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Logo rise"
+length = 8.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 60, 48 ), Vector2( 60, 44 ), Vector2( 60, 40 ), Vector2( 60, 36 ), Vector2( 60, 32 ), Vector2( 60, 28 ), Vector2( 60, 24 ), Vector2( 60, 20 ), Vector2( 60, 16 ), Vector2( 60, 12 ), Vector2( 60, 20 ), Vector2( 60, 12 ), Vector2( 60, 20 ), Vector2( 60, 12 ), Vector2( 60, 20 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.2, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.12549 ), Color( 1, 1, 1, 0.25098 ), Color( 1, 1, 1, 0.376471 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0.627451 ), Color( 1, 1, 1, 0.752941 ), Color( 1, 1, 1, 0.878431 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sfxplayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0, 2 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 60, 20 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("sfxplayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="Title_scene" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2( 240, 180 )
+texture = ExtResource( 6 )
+script = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Logo rise" = SubResource( 1 )
+anims/RESET = SubResource( 3 )
+
+[node name="Logo" type="Sprite2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 60, 20 )
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( 0, 0 )
+
+[node name="Menu" type="Node2D" parent="."]
+visible = false
+
+[node name="Start" type="Label" parent="Menu"]
+offset_left = 190.0
+offset_top = 205.0
+offset_right = 290.0
+offset_bottom = 225.0
+theme_override_fonts/font = ExtResource( 3 )
+theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 6
+theme_override_colors/font_outline_color = Color( 0.04, 0.02, 0.08, 1 )
+text = "START"
+horizontal_alignment = 1
+
+[node name="Options" type="Label" parent="Menu"]
+modulate = Color( 0.72, 0.66, 0.82, 1 )
+offset_left = 190.0
+offset_top = 227.0
+offset_right = 290.0
+offset_bottom = 247.0
+theme_override_fonts/font = ExtResource( 3 )
+theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 6
+theme_override_colors/font_outline_color = Color( 0.04, 0.02, 0.08, 1 )
+text = "OPTIONS"
+horizontal_alignment = 1
+[node name="Credits" type="Label" parent="Menu"]
+modulate = Color( 0.72, 0.66, 0.82, 1 )
+offset_left = 190.0
+offset_top = 249.0
+offset_right = 290.0
+offset_bottom = 269.0
+theme_override_fonts/font = ExtResource( 3 )
+theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 6
+theme_override_colors/font_outline_color = Color( 0.04, 0.02, 0.08, 1 )
+text = "CREDITS"
+horizontal_alignment = 1
+
+[node name="Quit" type="Label" parent="Menu"]
+modulate = Color( 0.72, 0.66, 0.82, 1 )
+offset_left = 190.0
+offset_top = 271.0
+offset_right = 290.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource( 3 )
+theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 6
+theme_override_colors/font_outline_color = Color( 0.04, 0.02, 0.08, 1 )
+text = "QUIT"
+horizontal_alignment = 1
+
+[node name="Selector" type="Label" parent="."]
+visible = false
+offset_left = 166.0
+offset_top = 205.0
+offset_right = 186.0
+offset_bottom = 225.0
+theme_override_fonts/font = ExtResource( 3 )
+theme_override_font_sizes/font_size = 16
+theme_override_constants/outline_size = 6
+theme_override_colors/font_outline_color = Color( 0.04, 0.02, 0.08, 1 )
+text = ">"
+horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Selector"]
+wait_time = 0.5
+
+[node name="musicplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="sfxplayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="menusfx" type="AudioStreamPlayer" parent="."]
+
+[connection signal="timeout" from="Selector/Timer" to="." method="_on_Timer_timeout"]

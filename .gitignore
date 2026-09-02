@@ -1,0 +1,18 @@
+# Godot 4
+.godot/
+/android/
+*.translation
+
+# Export
+export.cfg
+export_presets.cfg
+/build/
+/dist/
+
+# Vercel
+.vercel/
+
+# ระบบปฏิบัติการ
+.DS_Store
+Thumbs.db
+desktop.ini

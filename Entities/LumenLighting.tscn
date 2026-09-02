@@ -1,0 +1,20 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://Scripts/LumenLighting.gd" id="1_script"]
+[ext_resource type="Script" path="res://Scripts/ZoneProfile.gd" id="2_zoneprofile"]
+[ext_resource type="Environment" path="res://Resources/lumen_env.tres" id="3_env"]
+[ext_resource type="Resource" path="res://Resources/Zones/zone_1_drowned_foot.tres" id="4_z1"]
+[ext_resource type="Resource" path="res://Resources/Zones/zone_2_archive.tres" id="5_z2"]
+[ext_resource type="Resource" path="res://Resources/Zones/zone_3_furnace_vein.tres" id="6_z3"]
+[ext_resource type="Resource" path="res://Resources/Zones/zone_4_crown_of_glass.tres" id="7_z4"]
+[ext_resource type="Resource" path="res://Resources/Zones/zone_5_the_lantern.tres" id="8_z5"]
+
+[node name="LumenLighting" type="Node2D"]
+script = ExtResource("1_script")
+zones = Array[ExtResource("2_zoneprofile")]([ExtResource("4_z1"), ExtResource("5_z2"), ExtResource("6_z3"), ExtResource("7_z4"), ExtResource("8_z5")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("3_env")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.8, 0.9, 0.94, 1)

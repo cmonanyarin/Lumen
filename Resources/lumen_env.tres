@@ -1,0 +1,34 @@
+[gd_resource type="Environment" format=3]
+
+; LUMEN — Environment กลางของเกม
+; ค่าตั้งต้นตรงกับ GDD หัวข้อ 03
+; glow_intensity / glow_bloom / glow_hdr_threshold ถูก LumenLighting.gd
+; เขียนทับตอนรันตามโซน — ค่าที่เห็นตรงนี้คือค่าของโซน 1
+
+[resource]
+background_mode = 3
+background_canvas_max_layer = 100
+ambient_light_source = 0
+tonemap_mode = 3
+tonemap_white = 1.6
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.42
+glow_strength = 1.05
+glow_mix = 0.05
+glow_bloom = 0.08
+glow_blend_mode = 2
+glow_hdr_threshold = 0.95
+glow_hdr_scale = 2.0
+glow_hdr_luminance_cap = 12.0
+glow_levels/1 = 0.0
+glow_levels/2 = 0.4
+glow_levels/3 = 0.8
+glow_levels/4 = 1.0
+glow_levels/5 = 1.0
+glow_levels/6 = 0.6
+glow_levels/7 = 0.0
+adjustment_enabled = true
+adjustment_brightness = 1.0
+adjustment_contrast = 1.04
+adjustment_saturation = 1.05

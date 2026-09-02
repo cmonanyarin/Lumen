@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ZoneProfile" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/ZoneProfile.gd" id="1_zone"]
+
+[resource]
+script = ExtResource("1_zone")
+zone_name = "มงกุฎแก้ว"
+zone_name_en = "The Crown of Glass"
+first_level = 27
+ambient = Color(0.78, 0.82, 0.98, 1)
+saturation = 0.95
+contrast = 1.08
+glow_intensity = 0.6
+glow_bloom = 0.22
+glow_hdr_threshold = 0.93
+ember_color = Color(1, 0.824, 0.628, 1)
+ember_energy = 0.7
+ember_scale = 0.7
